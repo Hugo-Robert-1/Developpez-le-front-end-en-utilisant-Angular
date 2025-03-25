@@ -1,0 +1,23 @@
+.statistic-box {
+  border: 2px solid #04838f;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  max-width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.statistic-number {
+  font-weight: bold;
+}
+
+p {
+  margin: 2px 0;
+  padding: 0;
+  line-height: 1.2;
+}
