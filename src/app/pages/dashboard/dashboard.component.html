@@ -1,0 +1,10 @@
+<div>
+    <app-header text="Medals per country"></app-header>
+    <div class="statistic-box-block">
+        <app-statistic-display-box [statisticName]="'Number of JOs'" [statisticNumber]="(totalOlympics$ | async) ?? 0"></app-statistic-display-box>
+        <app-statistic-display-box [statisticName]="'Number of countries'" [statisticNumber]="(totalCountries$ | async) ?? 0"></app-statistic-display-box>
+    </div>
+    <div>
+        <app-pie-chart></app-pie-chart>
+    </div>
+</div>
