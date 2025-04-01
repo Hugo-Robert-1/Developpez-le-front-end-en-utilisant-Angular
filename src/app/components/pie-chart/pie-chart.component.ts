@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Color, NgxChartsModule, ScaleType } from '@swimlane/ngx-charts';
+import { Subscription } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 
 @Component({
@@ -25,12 +26,16 @@ export class PieChartComponent {
     domain: ['#A8385D', '#7AA3E5', '#A27EA8', '#AAE3F5', '#ADCDED', '#A95963']
   };
 
+  private subscription: Subscription = new Subscription();
+
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
-    this.olympicService.getOlympicChartData().subscribe(result => {
+    const olympicSubscription = this.olympicService.getOlympicChartData().subscribe(result => {
       this.data = result;
     });
+
+    this.subscription.add(olympicSubscription);
   }
 
   onDeactivate(): void {
@@ -63,6 +68,10 @@ export class PieChartComponent {
       this.tooltipX = event.clientX - tooltipWidth / 2;
       this.tooltipY = event.clientY - tooltipHeight - 15;
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
 
