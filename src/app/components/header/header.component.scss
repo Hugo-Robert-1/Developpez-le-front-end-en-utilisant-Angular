@@ -1,0 +1,14 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.label {
+  background-color: #04838f;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: inline-block;
+}
