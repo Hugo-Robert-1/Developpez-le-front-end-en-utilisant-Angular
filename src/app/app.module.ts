@@ -10,10 +10,13 @@ import { PieChartComponent } from "./components/pie-chart/pie-chart.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { StatisticDisplayBoxComponent } from './components/statistic-display-box/statistic-display-box.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent,  DashboardComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxChartsModule, PieChartComponent, HeaderComponent, StatisticDisplayBoxComponent],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent,  DashboardComponent, DetailPageComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxChartsModule, PieChartComponent, HeaderComponent, StatisticDisplayBoxComponent, LineChartComponent, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
