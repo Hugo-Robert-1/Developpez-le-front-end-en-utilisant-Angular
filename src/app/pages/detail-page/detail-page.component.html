@@ -1,1 +1,14 @@
-<div> it works </div>
+<div>
+    <div>
+        <a routerLink="/">Back</a>
+        <app-header [text]="countryData?.country ?? ''"></app-header>
+    </div>
+    <div class="statistic-box-block">
+        <app-statistic-display-box [statisticName]="'Number of entries'" [statisticNumber]="totalParticipations"></app-statistic-display-box>
+        <app-statistic-display-box [statisticName]="'Total number medals'" [statisticNumber]="totalMedals"></app-statistic-display-box>
+        <app-statistic-display-box [statisticName]="'Total number of athletes'" [statisticNumber]="totalAthletes"></app-statistic-display-box>
+    </div>
+    <div>
+        <app-line-chart [data]="lineChartData"></app-line-chart>
+    </div>
+</div>

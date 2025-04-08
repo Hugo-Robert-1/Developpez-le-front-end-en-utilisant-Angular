@@ -30,6 +30,15 @@ export class OlympicService {
     return this.olympics$.asObservable();
   }
 
+  getCountryById(id: number): Observable<Olympic | undefined> {
+    return this.getOlympics().pipe(
+      map((olympics) => {
+        if (!olympics) return undefined;
+        return olympics.find((country) => country.id === id);
+      })
+    );
+  }
+
   countNumberOfJo(): Observable<number> {
     return this.getOlympics().pipe(
       map(olympics => {
@@ -67,7 +76,7 @@ export class OlympicService {
     return this.getOlympics().pipe(
       map(olympics => {
         if (!olympics) return [];
-        
+
         return olympics.map(o => ({
           name: o.country,
           value: o.participations.reduce((sum, p) => sum + p.medalsCount, 0), // Somme des médailles
