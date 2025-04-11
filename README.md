@@ -1,29 +1,35 @@
-# OlympicGamesStarter
+# Télésport
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+L'application est développée via Angular CLI et a pour objectif d'afficher les statistiques des Jeux Olympiques passés, avec l'aide de différents graphiques pour illustrer les données. Ces graphiques proviennent de la libraire ngx-charts.
 
-Don't forget to install your node_modules before starting (`npm install`).
+## Version des outils
 
-## Development server
+- [Node.js](https://nodejs.org/fr)  (version recommandée : LTS)
+- [Angular](https://v18.angular.dev/) (version 18.0.3)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation
+ ### 1. Cloner le dépôt :
+  ```git clone https://github.com/Hugo-Robert-1/Developpez-le-front-end-en-utilisant-Angular.git ```
+ ### 2. Se placer dans le dossier du projet :
+   ```cd telesport```
+ ### 3. Installer les dépendances du projet :
+  ``npm install``
 
-## Build
+## Utilisation 
+ ### 1. Locale :
+Utiliser la commande `ng serve` pour lancer un serveur de développement. Il sera effectif à l'adresse suivante : `http://localhost:4200/`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ ### 2. Build :
 
-## Where to start
+ Utiliser la commande `ng build` pour construire le projet. Il sera disponible dans le dossier `dist/`
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
+## Architecture du projet
 
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
+- Dossier `components`: contient les composants réutilisables
+- Dossier `pages`: contient les composants utilisés pour le routage
+- Dossier `core`: contient la logique métier (`services` et `models`)
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
+## License
 
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
+Le projet est sous licence [MIT](https://choosealicense.com/licenses/mit/).
 
-You're now ready to implement the requested features.
-
-Good luck!
