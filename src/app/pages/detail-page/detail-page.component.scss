@@ -1,8 +1,29 @@
 .statistic-box-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap; 
-    margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.header-detail-container {
+  position: relative;
+  height: 3.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.header-detail-container a {
+  position: relative;
+  z-index: 1;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header-detail-container app-header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
