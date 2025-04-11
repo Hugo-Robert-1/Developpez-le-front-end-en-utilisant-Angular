@@ -30,6 +30,15 @@ export class OlympicService {
     return this.olympics$.asObservable();
   }
 
+  getCountryById(id: number): Observable<Olympic | undefined> {
+    return this.getOlympics().pipe(
+      map((olympics) => {
+        if (!olympics) return undefined;
+        return olympics.find((country) => country.id === id);
+      })
+    );
+  }
+
   countNumberOfJo(): Observable<number> {
     return this.getOlympics().pipe(
       map(olympics => {
@@ -63,15 +72,15 @@ export class OlympicService {
   }
 
   // Formattage des données pour afficher les données sur le diagramme circulaire
-  getOlympicChartData(): Observable<{ name: string; value: number; id: number }[]> {
+  getOlympicChartData(): Observable<{ name: string; value: number; extra: { id: number } }[]> {
     return this.getOlympics().pipe(
       map(olympics => {
         if (!olympics) return [];
-        
-        return olympics.map(country => ({
-          name: country.country,
-          value: country.participations.reduce((sum, p) => sum + p.medalsCount, 0), // Somme des médailles
-          id: country.id
+
+        return olympics.map(o => ({
+          name: o.country,
+          value: o.participations.reduce((sum, p) => sum + p.medalsCount, 0), // Somme des médailles
+          extra: { id: o.id } // "extra" permet d'ajouter des attributs supplémentaires, ici l'id du pays
         }));
       })
     );
