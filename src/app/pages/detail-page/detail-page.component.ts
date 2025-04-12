@@ -25,8 +25,12 @@ export class DetailPageComponent implements OnInit {
     const countryId = Number(this.route.snapshot.paramMap.get('id'));
 
     this.subscription = this.olympicService.getCountryById(countryId).subscribe((country) => {
-      if (!country) return;
-  
+      if (!country) {
+        this.router.navigate(['/not-found'], {
+          state: { message: `Country Data could not be retrieved.` }
+        });
+        return;
+      }
       this.countryData = country;
       this.totalParticipations = country.participations.length;
       this.totalMedals = country.participations.reduce((sum, p) => sum + p.medalsCount, 0);
