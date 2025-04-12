@@ -65,6 +65,7 @@ export class PieChartComponent {
     this.showTooltip = true;
   }
 
+  //Méthode permettant d'afficher le tooltip au dessus du curseur quand il se déplace sur le graphe
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent): void {
     if (this.showTooltip) {

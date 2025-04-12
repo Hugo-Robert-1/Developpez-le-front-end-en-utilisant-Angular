@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { LineChartData } from 'src/app/core/models/LineChart.type';
 import { Olympic } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 
@@ -15,8 +16,8 @@ export class DetailPageComponent implements OnInit {
   totalParticipations: number = 0;
   totalMedals: number = 0;
   totalAthletes: number = 0;
-  lineChartData: any[] = [];
-  medalsByYear: { name: string; value: number; }[] | undefined;
+  lineChartData: LineChartData[] = [];
+  medalsByYear: { name: string; value: number; }[] = [];
  
   constructor(private olympicService: OlympicService, private route: ActivatedRoute, private router: Router) {}
 
@@ -34,15 +35,17 @@ export class DetailPageComponent implements OnInit {
         name: (p.year).toString(),
         value: p.medalsCount
       }));
-      this.lineChartData = this.formatDataLineChart();
+      this.lineChartData = this.formatDataLineChart(this.countryData?.country, this.medalsByYear);
     });
   }
 
-  // Formattage des données pour affichage sur le graphe LineChart
-  formatDataLineChart() {
+  // // Formattage des données pour respecter le format attendu par la libraire ngx-chart pour afficher les données sur le diagramme linéaire
+  formatDataLineChart(name?: string, series?: { name: string; value: number }[]): LineChartData[] {
+    if (!name || !series) return [];
+  
     return [{
-      name: this.countryData?.country,
-      series: this.medalsByYear
+      name,
+      series
     }];
   }
 
