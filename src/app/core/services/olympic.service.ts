@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Olympic } from '../models/Olympic';
+import { PieChartData } from '../models/PieChart.type';
 
 @Injectable({
   providedIn: 'root',
@@ -30,11 +31,11 @@ export class OlympicService {
     return this.olympics$.asObservable();
   }
 
-  getCountryById(id: number): Observable<Olympic | undefined> {
+  getCountryById(id: number): Observable<Olympic | null> {
     return this.getOlympics().pipe(
       map((olympics) => {
-        if (!olympics) return undefined;
-        return olympics.find((country) => country.id === id);
+        if (!olympics) return null;
+        return olympics.find((country) => country.id === id)?? null;
       })
     );
   }
@@ -71,8 +72,8 @@ export class OlympicService {
     );
   }
 
-  // Formattage des données pour afficher les données sur le diagramme circulaire
-  getOlympicChartData(): Observable<{ name: string; value: number; extra: { id: number } }[]> {
+  // Formattage des données pour respecter le format attendu par la libraire ngx-chart pour afficher les données sur le diagramme circulaire 
+  getOlympicChartData(): Observable<PieChartData[]> {
     return this.getOlympics().pipe(
       map(olympics => {
         if (!olympics) return [];
