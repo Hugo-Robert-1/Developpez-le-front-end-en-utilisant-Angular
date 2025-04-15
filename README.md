@@ -17,11 +17,9 @@ L'application est développée via Angular CLI et a pour objectif d'afficher les
 
 ## Utilisation 
  ### 1. Locale :
-Utiliser la commande `ng serve` pour lancer un serveur de développement. Il sera effectif à l'adresse suivante : `http://localhost:4200/`
-
+ Utiliser la commande `npm start` pour lancer un serveur de développement. Il sera effectif à l'adresse suivante : `http://localhost:4200/`
  ### 2. Build :
-
- Utiliser la commande `ng build` pour construire le projet. Il sera disponible dans le dossier `dist/`
+ Utiliser la commande `npm build` pour construire le projet. Il sera disponible dans le dossier `dist/`
 
 ## Architecture du projet
 
